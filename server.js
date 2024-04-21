@@ -15,7 +15,6 @@ mongoose.connect('mongodb://localhost:27017/liebess');
 
 const ReservationSchema = new mongoose.Schema({
   date: Date,
-  datetime: Date,
   time: String,
   people: Number,
   contact: String,
@@ -37,7 +36,6 @@ app.post('/submit', (req, res) => {
 
   const reservation = new ReservationModel({
     date: req.body.date,
-    datetime: req.body.datetime,
     time: req.body.time,
     people: req.body.people,
     contact: req.body.contact,
@@ -45,8 +43,6 @@ app.post('/submit', (req, res) => {
   });
   reservation.save().then(() => res.send('data is being processed'))
   .catch(err => console.log(err));
-
-
 
     });
 
