@@ -12,3 +12,7 @@
 
 
   console.log('Hello World!');
+
+  document.addEventListener('click', () => {
+    console.log('You clicked on the page!');
+  });

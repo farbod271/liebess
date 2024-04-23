@@ -1,8 +1,11 @@
 const express = require('express');
+const sendmail = require('./sendmail');
+
+
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const { table } = require('console');
+// const { table } = require('console');
 
 const app = express();
 const PORT = 1024;
@@ -15,7 +18,6 @@ mongoose.connect('mongodb://localhost:27017/liebess');
 
 const ReservationSchema = new mongoose.Schema({
   date: Date,
-  time: String,
   people: Number,
   contact: String,
   table: Number
@@ -36,17 +38,15 @@ app.post('/submit', (req, res) => {
 
   const reservation = new ReservationModel({
     date: req.body.date,
-    time: req.body.time,
     people: req.body.people,
     contact: req.body.contact,
     table: req.body.table
   });
-  reservation.save().then(() => res.send('data is being processed'))
+  reservation.save()
+  .then((promise) => { sendmail(promise.date, promise.people, promise.contact, promise.table);
+  res.send('your reservation has been made');})
   .catch(err => console.log(err));
-
     });
-
-
 
 
 
