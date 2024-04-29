@@ -8,10 +8,10 @@
 }
 
 body {
-    /* background: linear-gradient(to right,       #0f0c29, #302b63, #24243e); */
     color: azure;
     font-family: "Signika", Arial, serif;
     width: 100%;
+    height: 100%;
 }
 
 label {
@@ -32,11 +32,11 @@ label {
 }
 
 .box {
-    width: 550px;
-    margin: 70px auto;
+    width: 450px;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
-    border-radius: 30px;
+    border-radius: 43px;
     /* background-color: #5454548b;   */
     padding: 50px 0px;
     color: aliceblue;
@@ -45,6 +45,14 @@ box-shadow: 0 8px 32px 0 rgba(125, 135, 31, 0.37);
 backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-group {
@@ -102,8 +110,8 @@ input[type="number"]:focus, input[type="text"]:focus {
     width: 100%; 
     height: 100vh;
     object-fit: cover;
-    object-position: center top;
-    filter: blur(20px) brightness(0.9);
+    object-position: center -200px;
+    filter: blur(13px) brightness(0.9);
     position: fixed;
     top: 0;
     z-index: -2;
@@ -117,4 +125,16 @@ input[type="number"]:focus, input[type="text"]:focus {
     height: 800px;
     background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.188) 99%);
     z-index: -1;
+}
+
+
+@media screen and (max-width: 500px) {
+    .box {
+        width: 90%;
+    }
+
+    .form-group {
+        width: 80%;
+    }
+    
 }
