@@ -1,19 +1,38 @@
-// function getCookie(name) {
-//     const value = `; ${document.cookie}`;
-//     const parts = value.split(`; ${name}=`);
-//     if (parts.length === 2) return parts.pop().split(';').shift();
-//   }
+const input = document.getElementById('people');
+const arr_up = document.querySelector('.arr-up');
+const arr_down = document.querySelector('.arr-down');
+const arr_right = document.querySelector('.right');
+const arr_left = document.querySelector('.left');
+const form = document.querySelector('form')
+
+
+
+arr_up.addEventListener('click', () => {
+    console.log('up');
+    input.stepUp();
+});
+
+arr_down.addEventListener('click', () => {
+    console.log('down');
+    input.stepDown();
+});
+
+
+arr_right.addEventListener('click', () => {
+  console.log('right');
+  form.style.transform = `translateX(-${form.offsetWidth/2 + 33}px)`;
   
-//   const csrfToken = getCookie('_csrf');
-//   console.log(csrfToken);
+});
+
+arr_left.addEventListener('click', () => {
+  console.log('left');
+  form.style.transform = 'translateX(0px)';
   
-//   const input = document.querySelector('input[name="_csrf"]');
-//   input.value = csrfToken;
+});
+
+console.log(form);
+
+console.log(form.offsetWidth);
 
 
-  console.log('Hello World!');
-
-  document.addEventListener('click', () => {
-    console.log('You clicked on the page!');
-  });
 
