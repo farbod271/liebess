@@ -46,8 +46,16 @@ box-shadow: 0 8px 32px 0 rgba(125, 135, 31, 0.37);
 backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border: 1px solid rgba( 255, 255, 255, 0.18 );
-/* overflow: hidden; */
+/* overflow: scroll; */
+
 }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.box::-webkit-scrollbar {
+    display: none;
+}
+
 
 
 form {
@@ -151,12 +159,13 @@ input {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
+    background: #d0d0d0;
     border-radius: 15px;
     width: 100%;
     color: #545454;
     text-align: center;
     font-size: 0.9rem;
+    z-index: 2;
 }
 
 .wrapper {
@@ -182,14 +191,155 @@ input[name="table"] {
     display: none;
 }
 
+.second-view .form-group .container1 {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 300px;
+    scroll-snap-align: end;
+    scroll-snap-type: x mandatory;
+    direction: rtl;
+    cursor: -webkit-grab;
+}
+
+.second-view .form-group .container1:active {
+    cursor: -webkit-grabbing;
+}
+
+
+/* .second-view .form-group .container1::-webkit-scrollbar {
+    height: 10px;
+    width: 100%;
+} */
+
 .tables {
     position: relative;
     margin-top: 10px;
-    width: 95%;
+    width: 500px;
     height: 200px;
     background-color: #d6d6d686;
     border-radius: 20px;
 }
+
+
+.bar {
+    position: absolute;
+    right: 150px;
+    top: 0;
+    width: 150px;
+    height: 75px;
+    border-radius: 13px;
+    overflow: hidden;
+}
+.done {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    height: 50px;
+    width: 50px;
+}
+
+.nanni {
+    position: absolute;
+    top: 0;
+    right: 72px;
+    height: 50px;
+    width: 50px;
+}
+
+.sepp {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    height: 50px;
+    width: 50px;
+}
+
+.jakob {
+    position: absolute;
+    top: 70px;
+    right: 72px;
+    height: 50px;
+    width: 50px;
+}
+.franze {
+    position: absolute;
+    top: 120px;
+    right: 0px;
+    height: 50px;
+    width: 50px;
+
+}
+
+.bella {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+
+}
+
+.katl {
+    position: absolute;
+    bottom: -12px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+
+}
+
+.petra {
+    position: absolute;
+    bottom: 35px;
+    right: 50px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-40deg);
+
+
+}
+
+.lexi {
+    position: absolute;
+    bottom: 0px;
+    right: 80px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-90deg);
+
+
+}
+
+.karl {
+    position: absolute;
+    bottom: 48px;
+    right: 120px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-70deg);
+}
+
+.emmy {
+    position: absolute;
+    top: 90px;
+    right: 250px;
+    height: 50px;
+    width: 50px;
+
+}
+
+.bar2 {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 150px;
+    height: 75px;
+    border-radius: 13px;
+    overflow: hidden;
+
+}
+
 
 .arr {
     position: absolute;
@@ -226,10 +376,11 @@ input[type="number"]:focus, input[type="text"]:focus {
     height: 100vh;
     object-fit: cover;
     object-position: center -200px;
-    filter: blur(13px) brightness(0.9);
+    filter: blur(13px) brightness(0.9) saturate(0.8);
     position: fixed;
     top: 0;
     z-index: -2;
+
 }
 
 .gradient {
@@ -243,7 +394,7 @@ input[type="number"]:focus, input[type="text"]:focus {
 }
 
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     .box {
         width: 90%;
     }
@@ -252,4 +403,4 @@ input[type="number"]:focus, input[type="text"]:focus {
         width: 80%;
     }
     
-}
+} */
