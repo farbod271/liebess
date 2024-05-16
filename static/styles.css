@@ -213,6 +213,7 @@ input[name="table"] {
 /* .second-view .form-group .container1::-webkit-scrollbar {
     height: 10px;
     width: 100%;
+    display: none;
 } */
 
 .tables {
