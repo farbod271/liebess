@@ -1,8 +1,9 @@
 # Liebess Reservation System
 
-<img height="150" width="75" src="new liebess.JPG">
-<img height="150" width="75" src="Capture2.JPG">
-
+<p>
+<img height="200" width="100" src="new liebess.JPG">
+<img height="200" width="100" src="Capture2.JPG">
+</p>
 
 
 ## Overview
