@@ -10,6 +10,8 @@
 
 Liebess Reservation System is an application designed to facilitate table reservations at the restaurant Liebess. However, it is adaptable for use in any restaurant with minor modifications such as updating the SVG table map. Users can conveniently reserve tables by submitting a form and interacting with a custom-built SVG map representing the restaurant's layout. Future iterations will integrate React to enhance the user experience, providing users with a unique code for modifying reservation details.
 
+**Live website will be availble soon**
+
 ## Features
 
 - **Table Reservation**: Users can reserve tables by submitting a form.
