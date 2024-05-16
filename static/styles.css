@@ -18,6 +18,10 @@ label {
     color: aliceblue;
 }
 
+.flex {
+    display: flex;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -220,6 +224,10 @@ input[name="table"] {
     border-radius: 20px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 
 .bar {
     position: absolute;
@@ -329,6 +337,43 @@ input[name="table"] {
 
 }
 
+.elena {
+    position: absolute;
+    bottom: -10px;
+    right: 250px;
+    height: 50px;
+    width: 50px;
+
+
+}
+
+.hias {
+    position: absolute;
+    bottom: -10px;
+    right: 304px;
+    height: 50px;
+    width: 50px;
+
+
+}
+
+.soraya {
+    position: absolute;
+    bottom: 44px;
+    right: 304px;
+    height: 50px;
+    width: 50px;
+}
+
+
+.outside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 120px;
+
+}
 .bar2 {
     position: absolute;
     right: 0;
@@ -340,6 +385,29 @@ input[name="table"] {
 
 }
 
+
+.checkbox-wrapper {
+    margin-top: 10px;
+    flex-grow: 0;
+    height: 30px;
+    align-items: center;
+    gap: 10px;
+}
+
+input#table-or-none {
+    cursor: pointer;
+    margin: 0;
+    border-radius: 5px;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    align-self: center;
+}
+
+
+input#table-or-none:checked + .checkbox-wrapper {
+    background-color: #b46095;
+}
 
 .arr {
     position: absolute;

@@ -21,7 +21,7 @@ const ReservationSchema = new mongoose.Schema({
   name: String,
   people: Number,
   contact: String,
-  table: Number
+  table: String
 });
 
 const ReservationModel = mongoose.model('reservations', ReservationSchema);
@@ -47,10 +47,14 @@ app.post('/submit', (req, res) => {
 
   
   reservation.save()
-  .then((promise) => { sendmail(promise.date,promise.name ,promise.people, promise.contact, promise.table);
-  res.send('your reservation has been made');})
-  .catch(err => console.log(err));
-    });
+  console.log(req.body.date, req.body.name, req.body.people, req.body.contact, req.body.table);
+  // .then((promise) => { sendmail(promise.date,promise.name ,promise.people, promise.contact, promise.table);
+  // res.send('your reservation has been made');})
+  // .catch(err => console.log(err));
+  //   });
+
+    res.send('your reservation has been made');
+  });
 
 
 
