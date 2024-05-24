@@ -8,6 +8,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const multer  = require('multer');
 const upload = multer();
+const axios = require('axios');
 
 const app = express();
 const PORT = 1024;
@@ -79,7 +80,18 @@ app.get("/csrf-token" ,(req, res) => {
 
 
 
-app.post('/submit', doubleCsrfProtection, csrfErrorHandler, (req, res) => {
+app.post('/submit', doubleCsrfProtection, csrfErrorHandler, async (req, res) => {
+
+  const captchaResponse = req.body['g-recaptcha-response'];
+  if (captchaResponse) {
+    const captchaverified = await axios.post('https://www.google.com/recaptcha/api/siteverify', null, {
+    params: {
+    secret: process.env.CAPTCHA_SECRET,
+    response: captchaResponse
+  }
+})
+
+if (captchaverified.data.success === true) {
 
   const reservation = new ReservationModel({
     date: req.body.date,
@@ -98,6 +110,14 @@ app.post('/submit', doubleCsrfProtection, csrfErrorHandler, (req, res) => {
   //   });
 
   res.send('your reservation has been made'); 
+    }
+
+
+  }
+
+
+
+
 });
 
 

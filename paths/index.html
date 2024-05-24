@@ -135,8 +135,8 @@
                 <p id="table-name"></p>
                 <input min="1" max="15" type="text" name="table" id="table">
             </div>
+            <div class="g-recaptcha" data-sitekey="6LdnOecpAAAAADiAeqXATh6IuQohFAjXUzSoEJ2h"></div>
             <div class="container">
-                <div class="g-recaptcha" data-sitekey="6LdnOecpAAAAADiAeqXATh6IuQohFAjXUzSoEJ2h"></div>
                 <button type="submit">Reservieren</button>
             </div>
         </div>
@@ -165,6 +165,7 @@
 
 const form = event.target;
 const formData = new FormData(form);
+const captchaResponse = formData.get("g-recaptcha-response")
 const csrfToken = token;
 
 fetch(form.action, {
@@ -172,6 +173,9 @@ fetch(form.action, {
     body: formData,
     headers: {
         'X-CSRF-Token': csrfToken
+    },
+    params: {
+        'g-recaptcha-response': captchaResponse
     }
 })
 .then(response => response.json())
