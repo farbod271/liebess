@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
     <img src="Capture2.JPG" id="video">
@@ -41,7 +43,8 @@
             </div>
         </div>
     
-        <form method="post" action="submit">
+        <form id="myform" method="post" action="submit">
+
 
         <div class="first-view">
 
@@ -133,6 +136,7 @@
                 <input min="1" max="15" type="text" name="table" id="table">
             </div>
             <div class="container">
+                <div class="g-recaptcha" data-sitekey="6LdnOecpAAAAADiAeqXATh6IuQohFAjXUzSoEJ2h"></div>
                 <button type="submit">Reservieren</button>
             </div>
         </div>
@@ -151,8 +155,30 @@
 
 
 
+<script type="module">
+    const response = await fetch('/csrf-token');
+    const { token } = await response.json();
 
-<script src="app.js"></script>
+    document.getElementById('myform').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+
+const form = event.target;
+const formData = new FormData(form);
+const csrfToken = token;
+
+fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: {
+        'X-CSRF-Token': csrfToken
+    }
+})
+.then(response => response.json())
+});
+    </script>
+
+<script src="app.js" defer></script>
 
 </body>
 </html>

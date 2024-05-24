@@ -92,3 +92,6 @@ tableornone.addEventListener('click', () => {
 
 
 
+
+
+
