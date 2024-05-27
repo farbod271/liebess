@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" href="/static/images/favicon-32x32.png">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
-    <img src="Capture2.JPG" id="video">
+    <img src="/static/images/Capture2.JPG" id="video">
 
     <div class="gradient"></div>
 
@@ -160,7 +161,7 @@
     const { token } = await response.json();
 
     document.getElementById('myform').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); 
 
 
 const form = event.target;

@@ -1,10 +1,13 @@
 # Liebess Reservation System
 
 <p>
-<img height="320" width="160" src="new liebess.JPG">
-<img height="320" width="160" src="Capture3.JPG">
+<img height="320" width="160" src="/static/images/new liebess.JPG">
+<img height="320" width="160" src="/static/images/Capture3.JPG">
 </p>
 
+
+
+## Disclaimer: the resturant Liebess uses another reservation system at the moment and this open source project is designed to potentialy replace the current generic reservation system that liebess now uses
 
 ## Overview
 

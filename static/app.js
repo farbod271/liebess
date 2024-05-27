@@ -56,17 +56,13 @@ tables.forEach(table => {
 });
 
 
-//see if tableornone is checked
 tableornone.addEventListener('click', () => {
   if(tableornone.checked) {
-    //1. change the value of input_table to none
     input_table.value = 'none';
-    //2. change the cursor of contaier1 to not-allowed
     document.querySelector('.container1').style.cursor = 'not-allowed';
     tables.forEach(table => {
       table.style.cursor = 'not-allowed';
     });
-    //3. change the color of container1 to gray
     document.querySelector('.container1').style.backgroundColor = 'gray';
     
     // console.log('checked');
