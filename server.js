@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require("helmet");
 const { doubleCsrf } = require("csrf-csrf");
 const sendmail = require('./sendmail');
 const path = require('path');
@@ -10,11 +11,27 @@ const multer  = require('multer');
 const upload = multer();
 const axios = require('axios');
 
+
 const app = express();
 const PORT = 1024;
 
 
 
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        "script-src": ["'self'", "deggenhub.de"],
+        "default-src": ["'self'"],
+        "script-src-elem": ["'self'", "https://www.google.com/recaptcha/", "https://www.gstatic.com/recaptcha/"],
+        "frame-src": ["'self'", "https://www.google.com/recaptcha/"],
+        "style-src-elem": ["'self'", "https://fonts.googleapis.com/"],
+        "style-src": null,
+      },
+    },
+  }),
+);
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
@@ -29,9 +46,9 @@ app.use(session({
 
 const { invalidCsrfTokenError, generateToken, doubleCsrfProtection } = doubleCsrf({
   getSecret: () => process.env.SECRET, 
-  cookieName: "x-csrf-token", // Prefer "__Host-" prefixed names if possible
-  cookieOptions: { sameSite: false, secure: false }, // not ideal for production, development only
-  getTokenFromRequest: (req) => req.headers["x-csrf-token"], // A function that returns the token from the request
+  cookieName: "x-csrf-token", 
+  cookieOptions: { sameSite: false, secure: false }, 
+  getTokenFromRequest: (req) => req.headers["x-csrf-token"],
 });
 
 

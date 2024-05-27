@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="icon" href="/static/images/favicon-32x32.png">
+    <title>Resturant Reservation System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon-32x32.png">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
-    <img src="/static/images/Capture2.JPG" id="video">
+    <img src="images/Capture2.JPG" id="video">
 
     <div class="gradient"></div>
 
@@ -156,34 +156,8 @@
 
 
 
-<script type="module">
-    const response = await fetch('/csrf-token');
-    const { token } = await response.json();
-
-    document.getElementById('myform').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-
-
-const form = event.target;
-const formData = new FormData(form);
-const captchaResponse = formData.get("g-recaptcha-response")
-const csrfToken = token;
-
-fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: {
-        'X-CSRF-Token': csrfToken
-    },
-    params: {
-        'g-recaptcha-response': captchaResponse
-    }
-})
-.then(response => response.json())
-});
-    </script>
-
-<script src="app.js" defer></script>
+<script src="js/module.js" type="module"></script>
+<script src="js/app.js" defer></script>
 
 </body>
 </html>
